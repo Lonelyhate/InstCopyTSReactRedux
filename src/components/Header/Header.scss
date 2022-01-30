@@ -1,0 +1,13 @@
+.header{
+    background-color: #fff;
+    padding: 12px 0;
+    border-bottom: 1px solid rgb(219, 219, 219);
+    &__container{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 1005px;
+        margin: 0 auto;
+        padding: 0 15px;
+    }
+}

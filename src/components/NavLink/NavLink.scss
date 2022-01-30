@@ -1,0 +1,49 @@
+.nav{
+    display: flex;
+    &__item{
+        cursor: pointer;
+        img{
+            height: 24px;
+            width: 24px;
+        }
+        &:last-child{
+            img{
+                border-radius: 50%;
+                overflow: hidden;
+            }
+            position: relative;
+            &.active .profile-menu{
+                opacity: 1;
+                visibility: visible;
+                pointer-events: all;
+                transform: translateY(0);
+            }
+        }
+        &:not(:last-child) {
+            margin-right: 20px;
+        }
+    }
+}
+
+.profile-menu{
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    background-color: #fff;
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.098) 0px 0px 5px 1px;
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    width: 230px;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    &__item{
+        padding: 11px 16px;
+        transition: background-color 0.3s linear;
+        font-size: 14px;
+        &:hover{
+            background-color: #fafafa;
+        }
+    }
+}
