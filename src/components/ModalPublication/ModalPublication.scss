@@ -1,0 +1,39 @@
+.publication-modal{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(0,0,0, .5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    display: none;
+    &.active{
+        display: flex;
+    }
+    &__content{
+        position: relative;
+        width: 861px;
+        background-color: #fff;
+        height: 90vh;
+        z-index: 5;
+        display: flex;
+    }
+    &__left{
+        width: 438px;
+        display: flex;
+        align-items: center;
+        background-color: #000;
+    }
+    &__right{
+        width: calc(100% - 438px);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        &:first-child{
+            border-bottom: 1px solid #000;
+        }
+    }
+}

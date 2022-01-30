@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 import './PublicationsList.scss';
 import { fetchPublications } from '../../redux/actions/publication';
-import PublicationsItem from '../PublicationsItem/PublicationsItem';
+import PublicationsItem from '../PublicationsItem/PublicationItem';
 import './PublicationsList.scss'
 
 const PublicationsList: FC = () => {
@@ -17,7 +17,7 @@ const PublicationsList: FC = () => {
     return (
         <div className='publication'>
             {publications.map((publ) => (
-                <PublicationsItem publication={publ} />
+                <PublicationsItem key={publ.id} publication={publ} />
             ))}
         </div>
     );

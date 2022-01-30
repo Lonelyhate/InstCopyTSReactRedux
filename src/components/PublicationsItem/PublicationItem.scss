@@ -47,15 +47,17 @@
             display: block;
             width: 100%;
             height: auto;
-            max-height: 700px;
+            max-height: 650px;
         }
     }
     &__bottom{
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
         padding: 6px 16px 8px;
         margin-top: 5px;
+        &-btns{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
     }
     &__button{
         background: none;
@@ -78,6 +80,6 @@
     &__likes{
         font-size: 14px;
         font-weight: 700;
-        padding: 0 16px 16px;
+        padding: 16px 0;
     }
 }
