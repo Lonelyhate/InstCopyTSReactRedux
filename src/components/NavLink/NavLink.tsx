@@ -4,7 +4,8 @@ import homeImg from '../../assets/img/home.svg';
 import plusImg from '../../assets/img/plus.svg';
 import compasImg from '../../assets/img/compas.svg';
 import ProfileMenu from './ProfileMenu';
-import cn from 'classnames'
+import cn from 'classnames';
+import Avatar from '../UI/Avatar/Avatar';
 
 interface NavLinkProps {
     profileImg: string;
@@ -26,14 +27,11 @@ const NavLink: FC<NavLinkProps> = ({ profileImg }) => {
             <li className="nav__item">
                 <img src={compasImg} alt="compas" />
             </li>
-            <li className={cn('nav__item', {
-                active: isShowProfileMenu
-            })}>
-                <img
-                    onClick={() => setIsShowProfileMenu(!isShowProfileMenu)}
-                    src={profileImg}
-                    alt="profile"
-                />
+            <li onClick={() => setIsShowProfileMenu(!isShowProfileMenu)}
+                className={cn('nav__item', {
+                    active: isShowProfileMenu,
+                })}>
+                <Avatar avatarUrl={profileImg} heightAvater="23px" widthAvatar="23px" />
                 <ProfileMenu items={profileMenuItems} />
             </li>
         </ul>

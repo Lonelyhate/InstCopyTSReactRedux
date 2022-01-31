@@ -36,7 +36,12 @@ const ModalPublication: FC<ModalPublicationProps> = ({
                         location={publication.location}
                         nickname={publication.nickname}
                     />
-                    <PublicationBottom clickShowModal={clickShowModal} likes={publication.likes} />
+                    <PublicationBottom
+                        signature={publication.signature}
+                        nickname={publication.nickname}
+                        clickShowModal={clickShowModal}
+                        likes={publication.likes}
+                    />
                 </div>
             </div>
         </div>

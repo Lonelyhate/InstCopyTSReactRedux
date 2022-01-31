@@ -1,12 +1,19 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
+import ModalBottom from '../ModalBottom/ModalBottom';
 
 interface PublicationHeaderProps {
-    avatarImg: string
-    nickname: string
-    location: string | null
+    avatarImg: string;
+    nickname: string;
+    location: string | null;
 }
 
-const PublicationHeader: FC<PublicationHeaderProps> = ({avatarImg, nickname, location}) => {
+const PublicationHeader: FC<PublicationHeaderProps> = ({ avatarImg, nickname, location }) => {
+    const [isShowSetings, setIsShowSetings] = useState<boolean>(false);
+
+    const clickShowSetings = () => {
+        setIsShowSetings(!isShowSetings);
+    };
+
     return (
         <div className="publication__header">
             <div className="publication__about">
@@ -18,7 +25,10 @@ const PublicationHeader: FC<PublicationHeaderProps> = ({avatarImg, nickname, loc
                     <span className="publication__location">{location}</span>
                 </div>
             </div>
-            <button className="publication__btn">...</button>
+            <button onClick={clickShowSetings} className="publication__btn">
+                ...
+            </button>
+            <ModalBottom clickShowSetings={clickShowSetings} isShowSetings={isShowSetings} />
         </div>
     );
 };

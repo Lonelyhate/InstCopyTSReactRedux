@@ -1,0 +1,39 @@
+.modal-bottom{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, .5);
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+    &.active{
+        opacity: 1;
+        pointer-events: all;
+        visibility: visible;
+    }
+    &__content{
+        width: 400px;
+        background-color: #fff;
+        border-radius: 12px;
+    }
+    &__item{
+        width: 100%;
+        &:not(:last-child) {
+            border-bottom: 1px solid rgb(197, 197, 197);
+        }
+        button{
+            width: 100%;
+            cursor: pointer;
+            padding: 14px 0;
+            font-size: 14px;
+            background-color: transparent;
+            border: none;
+        }
+    }
+}

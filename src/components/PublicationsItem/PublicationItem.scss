@@ -46,7 +46,7 @@
         img{
             display: block;
             width: 100%;
-            height: auto;
+            height: 100%;
             max-height: 650px;
         }
     }
@@ -57,6 +57,16 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+        }
+
+    }
+    &__signature{
+        margin-top: 10px;
+        strong{
+            font-weight: 700;
+        }
+        span{
+            font-size: 14px;
         }
     }
     &__button{
