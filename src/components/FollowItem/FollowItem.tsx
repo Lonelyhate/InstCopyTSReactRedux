@@ -4,15 +4,17 @@ import Avatar from '../UI/Avatar/Avatar';
 import './FollowItem.scss'
 
 interface FollowItemProps {
-    sub: typeSubs
+    photo: string
+    nickname: string
+    name: string
 }
 
-const FollowItem: FC<FollowItemProps> = ({sub}) => {
+const FollowItem: FC<FollowItemProps> = ({photo, nickname, name}) => {
   return <div className='follow-item' >
-      <Avatar avatarUrl={sub.folloversImg} widthAvatar='30px' heightAvater='30px'/>
+      <Avatar avatarUrl={photo} widthAvatar='30px' heightAvater='30px'/>
       <div className="follow-item__text">
-          <h4 className='follow-item__nickname' >{sub.nickname}</h4>
-          <span className='follow-item__name'>{sub.name}</span>
+          <h4 className='follow-item__nickname' >{nickname}</h4>
+          <span className='follow-item__name'>{name}</span>
       </div>
   </div>;
 };

@@ -7,8 +7,9 @@ export type typeSubs = {
 export type typePhotos = {
     photo: string
     likes: number
-    location: string
+    location: string | null
     signature: string
+    id_photo: number
 }
 
 enum categoryUser {

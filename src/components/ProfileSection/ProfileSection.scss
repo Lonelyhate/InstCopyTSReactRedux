@@ -4,6 +4,11 @@
     margin-top: 100px;
     border-top: 1px solid rgba(142, 142, 142, 0.7);
     padding-top: 20px;
+    a{
+        &:not(:last-child) {
+            margin-right: 75px;
+        }
+    }
     &__btn{
         background: none;
         padding: 0;
@@ -12,18 +17,16 @@
         text-transform: uppercase;
         opacity: 0.5;
         cursor: pointer;
-        &:not(:last-child) {
-            margin-right: 75px;
-        }
         &.active{
             position: relative;
             opacity: 1;
+            pointer-events: none;
             &::before{
                 content: '';
                 display: block;
                 width: 100%;
                 height: 1px;
-                top: -21px;
+                top: -23px;
                 position: absolute;
                 background-color: #000;
             }

@@ -1,11 +1,32 @@
-import React, { FC } from 'react';
-import './ProfileSection.scss'
+import React, { FC, useState } from 'react';
+import { Link } from 'react-router-dom';
+import './ProfileSection.scss';
+import cn from 'classnames'
 
-const ProfileSection: FC = () => {
+interface ProfileSection {
+    nickname: string;
+}
+
+const ProfileSection: FC<ProfileSection> = ({ nickname }) => {
+
+    const [isActiveButton, setIsActiveButton] = useState<boolean>(true) 
+
+    const clickActiveBtn = () => {
+        setIsActiveButton(!isActiveButton)
+    }
+
     return (
         <div className="profile-section">
-            <button className="profile-section__btn active">Публикации</button>
-            <button className="profile-section__btn">СОХРАНЕННОЕ</button>
+            <Link to={`/${nickname}`}>
+                <button onClick={clickActiveBtn} className={cn('profile-section__btn', {
+                    active: isActiveButton
+                })}>Публикации</button>
+            </Link>
+            <Link to={`/${nickname}/saved`}>
+                <button onClick={clickActiveBtn} className={cn('profile-section__btn', {
+                    active: !isActiveButton
+                })}>СОХРАНЕННОЕ</button>
+            </Link>
         </div>
     );
 };

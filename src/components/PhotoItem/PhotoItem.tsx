@@ -1,41 +1,56 @@
 import React, { FC, useState } from 'react';
-import { typePhotos } from '../../types/types';
 import './PhotoItem.scss';
 import likeSvg from '../../assets/img/likeWhite.svg';
 import ModalPublication from '../ModalPublication/ModalPublication';
 
 interface PhotoItemProps {
-    photo: typePhotos;
+    likes: number;
     nickname: string;
-    avatar: string
+    avatar: string;
+    photo: string;
+    location: string | null;
+    signature: string;
+    id_photo: number;
+    saveds?: boolean;
 }
 
-const PhotoItem: FC<PhotoItemProps> = ({ photo, nickname, avatar }) => {
-
-    const [isShowModal, setIsShowModal] = useState<boolean>(false)
+const PhotoItem: FC<PhotoItemProps> = ({
+    nickname,
+    avatar,
+    photo,
+    likes,
+    location,
+    signature,
+    id_photo,
+    saveds,
+}) => {
+    const [isShowModal, setIsShowModal] = useState<boolean>(false);
 
     const clickShowModal = () => {
-        setIsShowModal(!isShowModal)
-    }
+        setIsShowModal(!isShowModal);
+    };
+
+    photo = saveds ? (photo = '../' + photo) : photo;
 
     return (
         <div className="photo-item">
             <div onClick={clickShowModal} className="photo-item__img">
-                <img src={photo.photo} alt={nickname} />
-                <div className='photo-item__fon'></div>
+                <img src={photo} alt={nickname} />
+                <div className="photo-item__fon"></div>
                 <div className="photo-item__likes">
-                    <img src={likeSvg} /> <span>{photo.likes}</span>
+                    <img src={likeSvg} /> <span>{likes}</span>
                 </div>
             </div>
             <ModalPublication
                 avatar={avatar}
-                likes={photo.likes}
-                location={photo.location}
+                likes={likes}
+                location={location}
                 nickname={nickname}
-                photos={photo.photo}
-                signature={photo.signature}
+                photos={photo}
+                signature={signature}
                 clickShowModal={clickShowModal}
                 isShowModal={isShowModal}
+                id_photo={id_photo}
             />
         </div>
     );

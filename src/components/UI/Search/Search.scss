@@ -4,8 +4,9 @@
     display: flex;
     align-items: center;
     border-radius: 8px;
-    background-color: #efefef;
+    background-color: hsl(0, 0%, 94%);
     padding: 0 16px;
+    position: relative;
     &__img{
         display: block;
         width: 16px;
@@ -22,5 +23,14 @@
             font-size: 16px;
             font-weight: 300;
         }
+    }
+    &-list{
+        position: absolute;
+        top: calc(100% + 13px);
+        left: -30px;
+        background-color: #fff;
+        width: 320px;
+        padding: 10px;
+        box-shadow: rgba(0, 0, 0, 0.098) 0px 0px 5px 1px;
     }
 }

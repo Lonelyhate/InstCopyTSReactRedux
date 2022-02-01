@@ -1,21 +1,42 @@
 import React, { FC } from 'react';
-import { typePhotos } from '../../types/types';
+import { ISaved, IUsers, typePhotos } from '../../types/types';
 import PhotoItem from '../PhotoItem/PhotoItem';
 import './PhotosList.scss';
 
 interface IPhotosListProps {
-    photos: typePhotos[];
-    nickname: string;
-    avatar: string;
+    currentUser?: IUsers;
+    saveds?: ISaved[];
 }
 
-const PhotosList: FC<IPhotosListProps> = ({ photos, nickname, avatar }) => {
-    
+const PhotosList: FC<IPhotosListProps> = ({ currentUser, saveds }) => {
     return (
         <div className="photos-list">
-            {photos.map((photo) => (
-                <PhotoItem key={photo.photo} photo={photo} nickname={nickname} avatar={avatar} />
-            ))}
+            {currentUser
+                ? currentUser.photos.map((photo) => (
+                      <PhotoItem
+                          key={photo.photo}
+                          photo={photo.photo}
+                          nickname={currentUser.nickname}
+                          avatar={currentUser.avatar}
+                          likes={photo.likes}
+                          location={photo.location}
+                          signature={photo.signature}
+                          id_photo={photo.id_photo}
+                      />
+                  ))
+                : saveds?.map((photo) => (
+                      <PhotoItem
+                          key={photo.photo}
+                          photo={photo.photo}
+                          nickname={photo.nickname}
+                          avatar={photo.avatar}
+                          likes={photo.likes}
+                          location={photo.location}
+                          signature={photo.signature}
+                          id_photo={photo.id_photo}
+                          saveds={true}
+                      />
+                  ))}
         </div>
     );
 };

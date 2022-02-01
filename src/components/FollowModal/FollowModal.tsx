@@ -27,7 +27,12 @@ const FollowModal: FC<FollowModalProps> = ({ myFollow, subscribes, isShow, click
                 </div>
                 <ul className="follow-modal__list">
                     {subscribes.map((sub) => (
-                        <FollowItem key={sub.nickname} sub={sub} />
+                        <FollowItem
+                            key={sub.nickname}
+                            photo={sub.folloversImg}
+                            nickname={sub.nickname}
+                            name={sub.name}
+                        />
                     ))}
                 </ul>
             </div>
