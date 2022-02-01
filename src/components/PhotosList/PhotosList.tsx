@@ -10,7 +10,7 @@ interface IPhotosListProps {
 }
 
 const PhotosList: FC<IPhotosListProps> = ({ photos, nickname, avatar }) => {
-    console.log(photos);
+    
     return (
         <div className="photos-list">
             {photos.map((photo) => (

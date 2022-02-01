@@ -10,15 +10,15 @@ export const publicationsReducer = (state = initialState, action:PublicationActi
   switch(action.type) {
     case PublicationActionTypes.FETCH_PUBLICATIONS:
         return {
-            loading: true, error: null, publications: []
+            ...state, loading: true, error: null, publications: []
         }
     case PublicationActionTypes.FETCH_PUBLICATIONS_SUCCESS:
         return {
-            loading: false, error: null, publications: action.payload
+            ...state, loading: false, error: null, publications: action.payload
         }
     case PublicationActionTypes.FETCH_PUBLICATIONS_ERROR:
         return {
-            loading: false, error: action.payload, publications: []
+            ...state, loading: false, error: action.payload, publications: []
         }
     default:
         return state

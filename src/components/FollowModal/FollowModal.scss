@@ -1,0 +1,51 @@
+.follow-modal{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+    &.active{
+        opacity: 1;
+        pointer-events: all;
+        visibility: visible;
+    }
+    &__content{
+        width: 400px;
+        height: 400px;
+        background-color: #fff;
+        border-radius: 12px;
+    }
+    &__header{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px 0;
+        border-bottom: 1px solid rgb(219, 219, 219);
+        position: relative;
+    }
+    &__title{
+        font-weight: 400;
+    }
+    &__close{
+        padding: 0;
+        border: none;
+        background: none;
+        font-size: 50px;
+        margin-top: 4px;
+        cursor: pointer;
+        position: absolute;
+        right: 15px;
+    }
+    &__list{
+        padding: 0 16px;
+    }
+
+}

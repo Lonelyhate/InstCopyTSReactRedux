@@ -5,14 +5,16 @@ import Header from './components/Header/Header';
 import Home from './components/pages/Home';
 import Profile from './components/pages/Profile';
 import { useTypedSelector } from './hooks/useTypedSelector';
+import { fetchAddPhoto, fetchSaveds } from './redux/actions/saved';
 import { fetchUsers } from './redux/actions/users';
 
 function App() {
     const { error, users, loading } = useTypedSelector((state) => state.users);
     const dispatch = useDispatch();
-
+    
     useEffect(() => {
         dispatch(fetchUsers());
+        dispatch(fetchSaveds())
     }, []);
 
     const currentUser = users[0];

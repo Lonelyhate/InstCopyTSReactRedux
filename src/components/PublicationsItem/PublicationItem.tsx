@@ -26,10 +26,14 @@ const PublicationsItem: FC<PublicationItemProps> = ({ publication }) => {
             />
             <PublicationPhoto imageUrl={publication.imageUrl} nickname={publication.nickname} />
             <PublicationBottom
+                id_photo={publication.id_photo}
                 clickShowModal={clickShowModal}
                 signature={publication.signature}
                 nickname={publication.nickname}
                 likes={publication.likes}
+                location={publication.location}
+                photo={publication.imageUrl}
+                avatar={publication.avatarImg}
             />
             <ModalPublication
                 avatar={publication.avatarImg}
@@ -40,6 +44,7 @@ const PublicationsItem: FC<PublicationItemProps> = ({ publication }) => {
                 signature={publication.signature}
                 clickShowModal={clickShowModal}
                 isShowModal={isShowModal}
+                id_photo={publication.id_photo}
             />
         </div>
     );

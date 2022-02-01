@@ -2,19 +2,19 @@ import React, { FC } from 'react';
 import PublicationPhoto from '../PublicationsItem/PublicationPhoto';
 import './ModalPublication.scss';
 import cn from 'classnames';
-import { IPublication } from '../../types/types';
 import PublicationHeader from '../PublicationsItem/PublicationHeader';
 import PublicationBottom from '../PublicationsItem/PublicationBottom';
 
 interface ModalPublicationProps {
     isShowModal: boolean;
     clickShowModal: () => void;
-    avatar: string
-    location: string | null
-    nickname:string
-    likes: number
-    photos: string
-    signature: string
+    avatar: string;
+    location: string | null;
+    nickname: string;
+    likes: number;
+    photos: string;
+    signature: string;
+    id_photo: number
 }
 
 const ModalPublication: FC<ModalPublicationProps> = ({
@@ -25,7 +25,8 @@ const ModalPublication: FC<ModalPublicationProps> = ({
     nickname,
     likes,
     photos,
-    signature
+    signature,
+    id_photo
 }) => {
     return (
         <div
@@ -35,22 +36,19 @@ const ModalPublication: FC<ModalPublicationProps> = ({
             })}>
             <div onClick={(e) => e.stopPropagation()} className="publication-modal__content">
                 <div className="publication-modal__left">
-                    <PublicationPhoto
-                        imageUrl={photos}
-                        nickname={nickname}
-                    />
+                    <PublicationPhoto imageUrl={photos} nickname={nickname} />
                 </div>
                 <div className="publication-modal__right">
-                    <PublicationHeader
-                        avatarImg={avatar}
-                        location={location}
-                        nickname={nickname}
-                    />
+                    <PublicationHeader avatarImg={avatar} location={location} nickname={nickname} />
                     <PublicationBottom
+                        clickShowModal={clickShowModal}
                         signature={signature}
                         nickname={nickname}
-                        clickShowModal={clickShowModal}
                         likes={likes}
+                        location={location}
+                        photo={photos}
+                        avatar={avatar}
+                        id_photo={id_photo}
                     />
                 </div>
             </div>

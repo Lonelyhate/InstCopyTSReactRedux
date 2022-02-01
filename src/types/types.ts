@@ -19,6 +19,7 @@ enum categoryUser {
 
 export interface IPublication {
     id: number
+    id_photo: number
     imageUrl: string
     avatarImg: string
     id_user: number
@@ -39,4 +40,14 @@ export interface IUsers {
     about: string
     webSite: string
     photos: typePhotos[]
+}
+
+export interface ISaved {
+    id_photo: number
+    nickname: string,
+    location: string | null
+    photo: string
+    likes: number
+    avatar: string
+    signature: string
 }
