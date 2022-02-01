@@ -4,7 +4,7 @@ export type typeSubs = {
     name: string
 }
 
-export type photos = {
+export type typePhotos = {
     photo: string
     likes: number
     location: string
@@ -38,5 +38,5 @@ export interface IUsers {
     category: categoryUser.ARTIST | categoryUser.BLOGGER | categoryUser.BUSINESSMAN
     about: string
     webSite: string
-    photos: photos[]
+    photos: typePhotos[]
 }

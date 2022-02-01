@@ -1,12 +1,23 @@
 import React, { FC } from 'react';
-import { IUsers } from '../../types/types';
+import { typePhotos } from '../../types/types';
+import PhotoItem from '../PhotoItem/PhotoItem';
+import './PhotosList.scss';
 
 interface IPhotosListProps {
-    user: IUsers
+    photos: typePhotos[];
+    nickname: string;
+    avatar: string;
 }
 
-const PhotosList :FC<IPhotosListProps> = ({user}) => {
-  return <div className='photosList'></div>;
+const PhotosList: FC<IPhotosListProps> = ({ photos, nickname, avatar }) => {
+    console.log(photos);
+    return (
+        <div className="photos-list">
+            {photos.map((photo) => (
+                <PhotoItem key={photo.photo} photo={photo} nickname={nickname} avatar={avatar} />
+            ))}
+        </div>
+    );
 };
 
 export default PhotosList;

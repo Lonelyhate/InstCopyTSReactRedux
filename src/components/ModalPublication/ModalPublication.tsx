@@ -9,13 +9,23 @@ import PublicationBottom from '../PublicationsItem/PublicationBottom';
 interface ModalPublicationProps {
     isShowModal: boolean;
     clickShowModal: () => void;
-    publication: IPublication;
+    avatar: string
+    location: string | null
+    nickname:string
+    likes: number
+    photos: string
+    signature: string
 }
 
 const ModalPublication: FC<ModalPublicationProps> = ({
     isShowModal,
     clickShowModal,
-    publication,
+    avatar,
+    location,
+    nickname,
+    likes,
+    photos,
+    signature
 }) => {
     return (
         <div
@@ -26,21 +36,21 @@ const ModalPublication: FC<ModalPublicationProps> = ({
             <div onClick={(e) => e.stopPropagation()} className="publication-modal__content">
                 <div className="publication-modal__left">
                     <PublicationPhoto
-                        imageUrl={publication.imageUrl}
-                        nickname={publication.nickname}
+                        imageUrl={photos}
+                        nickname={nickname}
                     />
                 </div>
                 <div className="publication-modal__right">
                     <PublicationHeader
-                        avatarImg={publication.avatarImg}
-                        location={publication.location}
-                        nickname={publication.nickname}
+                        avatarImg={avatar}
+                        location={location}
+                        nickname={nickname}
                     />
                     <PublicationBottom
-                        signature={publication.signature}
-                        nickname={publication.nickname}
+                        signature={signature}
+                        nickname={nickname}
                         clickShowModal={clickShowModal}
-                        likes={publication.likes}
+                        likes={likes}
                     />
                 </div>
             </div>
