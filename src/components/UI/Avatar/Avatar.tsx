@@ -9,7 +9,6 @@ interface AvatarProps {
 
 const Avatar: FC<AvatarProps> = ({ avatarUrl, widthAvatar, heightAvater }) => {
 
-    console.log(avatarUrl)
     return (
         <div style={{ width: widthAvatar, height: heightAvater }} className="avatar">
             <img src={avatarUrl} alt=''/>

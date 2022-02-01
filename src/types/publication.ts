@@ -1,7 +1,7 @@
 import { IPublication } from "./types"
 
 export interface PublicationState {
-    publications: any[],
+    publications: IPublication[],
     loading: boolean,
     error: null | string
 }

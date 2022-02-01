@@ -1,3 +1,16 @@
+export type typeSubs = {
+    folloversImg: string
+    nickname: string
+    name: string
+}
+
+export type photos = {
+    photo: string
+    likes: number
+    location: string
+    signature: string
+}
+
 enum categoryUser {
     ARTIST = 'Деятель исскуств',
     BLOGGER = 'Блогер',
@@ -19,11 +32,11 @@ export interface IUsers {
     id: number
     avatar: string
     nickname: string
-    follovers: any[]
-    subs: any[]
+    follovers: typeSubs[]
+    subs: typeSubs[]
     name: string
-    category: categoryUser
+    category: categoryUser.ARTIST | categoryUser.BLOGGER | categoryUser.BUSINESSMAN
     about: string
     webSite: string
-    photos: string[]
+    photos: photos[]
 }

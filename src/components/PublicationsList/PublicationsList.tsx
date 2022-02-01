@@ -4,8 +4,9 @@ import { useTypedSelector } from '../../hooks/useTypedSelector';
 import './PublicationsList.scss';
 import { fetchPublications } from '../../redux/actions/publication';
 import PublicationsItem from '../PublicationsItem/PublicationItem';
-import './PublicationsList.scss'
+import './PublicationsList.scss';
 import { IPublication } from '../../types/types';
+import LoaderPublication from '../loaders/LoaderPublication';
 
 const PublicationsList: FC = () => {
     const { error, publications, loading } = useTypedSelector((state) => state.publication);
@@ -16,10 +17,12 @@ const PublicationsList: FC = () => {
     }, []);
 
     return (
-        <div className='publication'>
-            {publications.map((publ: IPublication) => (
-                <PublicationsItem key={publ.id} publication={publ} />
-            ))}
+        <div className="publication">
+            {!loading
+                ? publications.map((publ: IPublication) => (
+                      <PublicationsItem key={publ.id} publication={publ} />
+                  ))
+                : [...Array(3)].map((item, index) => <LoaderPublication key={index} />)}
         </div>
     );
 };

@@ -4,10 +4,8 @@ import { Route, Routes } from 'react-router-dom';
 import Header from './components/Header/Header';
 import Home from './components/pages/Home';
 import Profile from './components/pages/Profile';
-import PublicationsList from './components/PublicationsList/PublicationsList';
 import { useTypedSelector } from './hooks/useTypedSelector';
 import { fetchUsers } from './redux/actions/users';
-import { IUsers } from './types/types';
 
 function App() {
     const { error, users, loading } = useTypedSelector((state) => state.users);
@@ -17,7 +15,7 @@ function App() {
         dispatch(fetchUsers());
     }, []);
 
-    const currentUser: IUsers = users[0];
+    const currentUser = users[0];
 
     return (
         <div className="App">
@@ -33,7 +31,10 @@ function App() {
                         />
                     }
                 />
-                <Route path={`/${currentUser?.nickname}`} element={<Profile />} />
+                <Route
+                    path={`/${currentUser?.nickname}`}
+                    element={<Profile />}
+                />
             </Routes>
         </div>
     );
